@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>IBM Watson Assistant</title>
+    <style>
+        body {
+            color: #2c3e50;
+            background: #ecf0f1;
+            padding: 0 1em 1em;
+            min-width: 17em;
+        }
+
+        h1 {
+            margin: 0;
+            line-height: 2;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0 0 0.5em;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .row .col {
+            flex: 1;
+        }
+
+        /* Accordion styles */
+        .tabs {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+        }
+
+        .tab {
+            width: 100%;
+            color: white;
+            overflow: hidden;
+        }
+
+        .tab-label {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background: #2c3e50;
+            font-weight: bold;
+            cursor: pointer;
+            /* Icon */
+        }
+
+        .tab-label:hover {
+            background: #1a252f;
+        }
+
+        .tab-label::after {
+            content: "\276F";
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all 0.35s;
+        }
+
+        .tab-content {
+            max-height: 0;
+            padding: 0 1em;
+            color: #2c3e50;
+            background: white;
+            transition: all 0.35s;
+        }
+
+        .tab-list {
+            margin: 0;
+        }
+
+        .tab-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: #2c3e50;
+            cursor: pointer;
+        }
+
+        .tab-close:hover {
+            background: #1a252f;
+        }
+
+        input:checked+.tab-label {
+            background: #1a252f;
+        }
+
+        input:checked+.tab-label::after {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        input:checked~.tab-content {
+            max-height: 100vh;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ChatBot</h1>
+    <div class="row">
+        <div class="col">
+            <h2>IBM Watson <b>Assistant</b></h2>
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" id="rd1" name="rd">
+                    <label class="tab-label" for="rd1">Help</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> What can I do </li>
+                            <li> I need assistance </li>
+                            <li> Help me </li>
+                            <li> Help me decide </li>
+                            <li> Help </li>
+                            <li> Can you assist me </li>
+                            <li> Can you help </li>
+                            <li> What can i say </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd2" name="rd">
+                    <label class="tab-label" for="rd2">Greetings</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> What's up? </li>
+                            <li> What's new? </li>
+                            <li> Hi there </li>
+                            <li> Hey twin </li>
+                            <li> Hi advisor </li>
+                            <li> Ok take me back </li>
+                            <li> Hey there </li>
+                            <li> Hey there all </li>
+                            <li> Hey how are you doing </li>
+                            <li> Hello I am looking for some help here </li>
+                            <li> Hello </li>
+                            <li> Hello Agent </li>
+                            <li> Have you been well? </li>
+                            <li> Greetings </li>
+                            <li> Good to see you </li>
+                            <li> Good morning </li>
+                            <li> Good evening </li>
+                            <li> Good day </li>
+                            <li> Hiya </li>
+                            <li> Yo </li>
+                            <li> How are things going? </li>
+                            <li> How are you today? </li>
+                            <li> How have you been? </li>
+                            <li> Hi </li>
+                            <li> How r u? </li>
+                            <li> Looking good eve </li>
+                            <li> Hey you </li>
+                            <li> How is it going? </li>
+                            <li> You there </li>
+                            <li> Who is this? </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd3" name="rd">
+                    <label class="tab-label" for="rd3">Store Location</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> Where are you located? </li>
+                            <li> Where is? </li>
+                            <li> Find store </li>
+                            <li> How do I get to your place </li>
+                            <li> Where are you located </li>
+                            <li> Can you give me directions </li>
+                            <li> Location please </li>
+                            <li> How do I find you </li>
+                            <li> What is the address </li>
+                            <li> Where are you </li>
+                            <li> What's your location </li>
+                            <li> Give me directions </li>
+                            <li> What is the closest store to my address? </li>
+                            <li> Looking for a location </li>
+                            <li> I want to know about a store </li>
+                            <li> I need help with find a store </li>
+                            <li> I'd like to go to a store </li>
+                            <li> Go to your company </li>
+                            <li> How do I get to your business </li>
+                            <li> What is the store near my zip code? </li>
+                            <li> Where is your office? </li>
+                            <li> Please suggest route from times square </li>
+                            <li> How can I get to you from grand central </li>
+                            <li> Which cross streets are you on </li>
+                            <li> What is the nearest branch? </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd4" name="rd">
+                    <label class="tab-label" for="rd4">Store Hours</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> How late are you open tonight </li>
+                            <li> What time do stores close? </li>
+                            <li> What time is your store open on saturday? </li>
+                            <li> what are your hours </li>
+                            <li> Will you open for christmas </li>
+                            <li> Will you be open Memorial day </li>
+                            <li> When do you close </li>
+                            <li> What time do you close </li>
+                            <li> What time do you open on Saturdays </li>
+                            <li> what time do you close on Sunday </li>
+                            <li> What time do you close today </li>
+                            <li> Hours of operation </li>
+                            <li> Are you open on Sunday </li>
+                            <li> Are stores open on sunday </li>
+                            <li> How late are you open </li>
+                            <li> Store open now </li>
+                            <li> Open hours store </li>
+                            <li> When do your stores open </li>
+                            <li> When does the store close </li>
+                            <li> When can i visit your store </li>
+                            <li> Store hrs </li>
+                            <li> Store hours </li>
+                            <li> Store open </li>
+                            <li> Store open hours? </li>
+                            <li> What is the opening time for the washington store? </li>
+                            <li> Are you closing early today </li>
+                            <li> Are you closed new Year's eve </li>
+                            <li> How early do you open on Saturdays </li>
+                            <li> How late are you there </li>
+                            <li> How late y'all stay up till </li>
+                            <li> Will you open on christmas </li>
+                            <li> Are the stores open early? </li>
+                            <li> Are you open during thanksgiving? </li>
+                            <li> Are you open on bank holidays? </li>
+                            <li> Are you open on sundays, and if so what are the hours? </li>
+                            <li> At what hour can I swing by? </li>
+                            <li> Can you tell me how late the stores are open till? </li>
+                            <li> Does the store in the city center opens till 8pm on weekends? </li>
+                            <li> How early do you open? </li>
+                            <li> How long are you open? </li>
+                            <li> Is the branch open now? </li>
+                            <li> What are the business hours of the store nearest to me? </li>
+                            <li> What are the hours of operation? </li>
+                            <li> What are the saturday opening times for the local store? </li>
+                            <li> What are ur opening hours? </li>
+                            <li> What are your hous? </li>
+                            <li> What time are you closing today? </li>
+                            <li> What time does the central manchester store shut on a saturday? </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd5" name="rd">
+                    <label class="tab-label" for="rd5">Appointments</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> I would like to make an appointment to visit the nearest store to my location. </li>
+                            <li> Could I speak to someone in the store next tuesday? </li>
+                            <li> Can I book an in person session </li>
+                            <li> Are you available on tuesday </li>
+                            <li> Can I book for tonight </li>
+                            <li> Do you have availability next week </li>
+                            <li> Can I make an appointment </li>
+                            <li> Can you make an appointment for me </li>
+                            <li> I'd like to make an appointment </li>
+                            <li> What time can I meet the staff? </li>
+                            <li> When can I meet with one of your employees at your store? </li>
+                            <li> Want to change my visit </li>
+                            <li> Store appointment </li>
+                            <li> Set up an appt </li>
+                            <li> Make an appointment </li>
+                            <li> I'd like to come in for an appointment </li>
+                            <li> I prefer a face to face visit </li>
+                            <li> Meet in store </li>
+                            <li> I want to talk in person with someone about my case </li>
+                            <li> I would like to discuss my situation face to face </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd6" name="rd">
+                    <label class="tab-label" for="rd6">Cancel</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> I don't want a table anymore anymore </li>
+                            <li> cancel the request </li>
+                            <li> I changed my mind </li>
+                            <li> Cancel that </li>
+                            <li> Nevermind </li>
+                            <li> Never mind </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd7" name="rd">
+                    <label class="tab-label" for="rd7">Thanks</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> That's nice of you </li>
+                            <li> Thank you very much </li>
+                            <li> Thx </li>
+                            <li> I appreciate it </li>
+                            <li> Thank you </li>
+                            <li> Much appreciated </li>
+                            <li> Thanks </li>
+                            <li> Many thanks </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd8" name="rd">
+                    <label class="tab-label" for="rd8">Goodbye</label>
+                    <div class="tab-content">
+                        <ol class="tab-list">
+                            <li> See you </li>
+                            <li> Good bye </li>
+                            <li> So long </li>
+                            <li> Bye </li>
+                            <li> Ciao </li>
+                            <li> Arrivederci </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rd9" name="rd">
+                    <label for="rd9" class="tab-close">Close others &times;</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://assistant-web.watsonplatform.net/loadWatsonAssistantChat.js"></script>
+    <script>
+        window.loadWatsonAssistantChat({
+            integrationID: "a41ff412-5e4a-4a84-ae0c-9cb96282c80a",
+            region: "eu-gb"
+        }).then(function (instance) {
+            instance.render();
+        });
+    </script>
+</body>
+
+</html>
